@@ -1,0 +1,27 @@
+name: Artifacts
+on:
+  push:
+    branches-ignore:
+      - main
+    tags:
+      - v*
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: npm ci
+        run: npm ci
+
+      - name: npm lint
+        run: npm run lint
