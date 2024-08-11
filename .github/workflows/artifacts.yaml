@@ -25,3 +25,27 @@ jobs:
 
       - name: npm lint
         run: npm run lint
+
+      - name: Set Version - Main
+        if: ${{startsWith(github.ref, 'refs/tags/v')}}
+        run: |
+          echo "Qt6Renderer_ArchiveVersion=$(echo '${{github.ref}}' | sed -e 's/refs\/tags\/v//')" >> $GITHUB_ENV
+          echo "Qt6Renderer_PackageVersion=${{env.Qt6Renderer_ArchiveVersion}}
+
+      - name: Set Version - Branch
+        if: ${{startsWith(github.ref, 'refs/heads/')}}
+        run: |
+          echo "Qt6Renderer_ArchiveVersion=${{github.run_number}}-$(echo '${{github.ref}}' | sed -e 's/refs\/heads\///' | sed -e 's/[^a-zA-Z0-9]/_/g')-$(echo ${{github.sha}} | cut -c 1-8)" >> $GITHUB_ENV
+          echo "Qt6Renderer_PackageVersion=$(cat package.json | grep \"version\" | sed -r 's/\s*\"version\"\s*:\s*\"(.+)\",?/\1/g')" >> $GITHUB_ENV
+
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
+
+      - name: Package
+        run: vsce package ${{env.Qt6Renderer_PackageVersion}}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Qt6Renderer-${{env.Qt6Renderer_ArchiveVersion}}
+          path: ./*.vsix
+          if-no-files-found: error
