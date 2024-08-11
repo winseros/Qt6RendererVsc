@@ -2,11 +2,13 @@
   "name": "qt6renderer",
   "displayName": "Qt6Renderer",
   "description": "Extension for pretty printing Qt types by GDB and LLDB",
+  "publisher": "knv",
+  "repository": "https://github.com/winseros/Qt6RendererVsc",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
-  "files": ["/dist/**/*"],
+  "files": ["dist/**/*", "LICENSE.txt"],
   "categories": [
     "Debuggers",
     "Visualization",
@@ -16,7 +18,7 @@
     "onDebugResolve:cppdbg",
     "onDebugResolve:lldb-dap"
   ],
-  "main": "./dist/extension.js",
+  "main": "dist/extension.js",
   "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run package",
