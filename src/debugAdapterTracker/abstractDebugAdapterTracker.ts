@@ -42,7 +42,7 @@ export abstract class AbstractDebugAdapterTracker implements vscode.DebugAdapter
     protected abstract setUpPrettyPrinters(frameId: number, scriptPath: string): Promise<void>;
 
     private async initialize(threadId: number) {
-        const scriptPath = path.join(this._context.extensionPath, "qt6renderer", "python");
+        const scriptPath = path.join(this._context.extensionPath, "dist", "qt6renderer", "python");
         const frameId = await this.getCurrentFrameId(threadId);
         await this.setUpPrettyPrinters(frameId, scriptPath);
     }
