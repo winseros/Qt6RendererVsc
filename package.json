@@ -4,11 +4,14 @@
   "description": "Extension for pretty printing Qt types by GDB and LLDB",
   "publisher": "knv",
   "repository": "https://github.com/winseros/Qt6RendererVsc",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.92.0"
   },
-  "files": ["dist/**/*", "LICENSE.txt"],
+  "files": [
+    "dist/**/*",
+    "LICENSE.txt"
+  ],
   "categories": [
     "Debuggers",
     "Visualization",
