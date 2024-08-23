@@ -11,7 +11,7 @@ export class GdbMiDebuggerAdapterTracker extends AbstractDebugAdapterTracker {
     protected async setUpPrettyPrinters(frameId: number, scriptPath: string): Promise<void> {
         await this.executeDebuggerCommand(
             frameId,
-            `python sys.path.append('${path.join(scriptPath, "gdb")}')`
+            `python sys.path.append('${path.join(scriptPath, "gdb").replaceAll("\\", "/")}')`
         );
         await this.executeDebuggerCommand(frameId, "python import qt6renderer");
         await this.executeDebuggerCommand(
