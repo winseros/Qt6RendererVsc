@@ -38,6 +38,9 @@ jobs:
           echo "Qt6Renderer_ArchiveVersion=${{github.run_number}}-$(echo '${{github.ref}}' | sed -e 's/refs\/heads\///' | sed -e 's/[^a-zA-Z0-9]/_/g')-$(echo ${{github.sha}} | cut -c 1-8)" >> $GITHUB_ENV
           echo "Qt6Renderer_PackageVersion=$(cat package.json | grep \"version\" | sed -r 's/\s*\"version\"\s*:\s*\"(.+)\",?/\1/g')" >> $GITHUB_ENV
 
+      - name: Use the marketplace README
+        run: node ./tools/useMarketplaceReadme.mjs
+
       - name: Install VSCE
         run: npm install -g @vscode/vsce
 

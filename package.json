@@ -12,6 +12,7 @@
     "dist/**/*.js",
     "dist/**/*.js.map",
     "dist/**/*.py",
+    "screenshots/*",
     "LICENSE.txt"
   ],
   "categories": [

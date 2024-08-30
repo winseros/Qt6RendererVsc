@@ -1,9 +1,8 @@
 # QT6 Renderer for Visual Studio Code
 
-The extension for pretty printing [Qt][qt] types by [Visual Studio Code][vscode].
+The extension for pretty printing [Qt][qt] types in [Visual Studio Code][vscode].
 
-> [!NOTE]
-> The extension wraps [Qt6Renderer][qt6renderer]. Bring up any problems there.
+![Screenshot of the debugger](./screenshots/screenshot.png)
 
 ## Prerequisites
 
