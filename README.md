@@ -38,11 +38,11 @@ See the [third-party extensions](#third-party-extensions-support) debugger and o
 
 ## Requirements
 
-See at the [Qt6Renderer](https://github.com/winseros/Qt6Renderer/tree/master?tab=readme-ov-file#requirements).
+See at the [Qt6Renderer](https://github.com/winseros/Qt6Renderer?tab=readme-ov-file#requirements).
 
 ## Troubleshooting
 
-See at the [Qt6Renderer](https://github.com/winseros/Qt6Renderer/tree/master?tab=readme-ov-file#troubleshooting).
+See at the [Qt6Renderer](https://github.com/winseros/Qt6Renderer?tab=readme-ov-file#troubleshooting).
 
 [qt]: https://www.qt.io/
 [vscode]: https://code.visualstudio.com/
