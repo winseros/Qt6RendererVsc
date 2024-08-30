@@ -24,7 +24,7 @@ The extension for pretty printing [Qt][qt] types by [Visual Studio Code][vscode]
 You can use the [example project][qt6renderer_exmpl] for testsing.
 
 ## Debuggers support
-See the [third-party extensions](#third-party-extensions-support) debugger and operating systems support.
+See the [third-party extensions](#prerequisites) debugger and operating systems support.
 
 ## Operating systems tested on
 * Linux
