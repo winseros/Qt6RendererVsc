@@ -30,7 +30,7 @@ jobs:
         if: ${{startsWith(github.ref, 'refs/tags/v')}}
         run: |
           echo "Qt6Renderer_ArchiveVersion=$(echo '${{github.ref}}' | sed -e 's/refs\/tags\/v//')" >> $GITHUB_ENV
-          echo "Qt6Renderer_PackageVersion=${{env.Qt6Renderer_ArchiveVersion}}
+          echo "Qt6Renderer_PackageVersion=${{env.Qt6Renderer_ArchiveVersion}}" >> $GITHUB_ENV
 
       - name: Set Version - Branch
         if: ${{startsWith(github.ref, 'refs/heads/')}}
