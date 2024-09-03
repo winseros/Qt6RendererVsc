@@ -29,23 +29,26 @@ jobs:
       - name: Set Version - Main
         if: ${{startsWith(github.ref, 'refs/tags/v')}}
         run: |
-          echo "Qt6Renderer_ArchiveVersion=$(echo '${{github.ref}}' | sed -e 's/refs\/tags\/v//')" >> $GITHUB_ENV
-          echo "Qt6Renderer_PackageVersion=${{env.Qt6Renderer_ArchiveVersion}}" >> $GITHUB_ENV
+          VER=$(echo '${{github.ref}}' | sed -e 's/refs\/tags\/v//')
+          echo "Qt6Renderer_ArchiveVersion=${VER}" >> $GITHUB_ENV
+          echo "Qt6Renderer_PackageVersion=${VER}" >> $GITHUB_ENV
 
       - name: Set Version - Branch
         if: ${{startsWith(github.ref, 'refs/heads/')}}
         run: |
           echo "Qt6Renderer_ArchiveVersion=${{github.run_number}}-$(echo '${{github.ref}}' | sed -e 's/refs\/heads\///' | sed -e 's/[^a-zA-Z0-9]/_/g')-$(echo ${{github.sha}} | cut -c 1-8)" >> $GITHUB_ENV
-          echo "Qt6Renderer_PackageVersion=$(cat package.json | grep \"version\" | sed -r 's/\s*\"version\"\s*:\s*\"(.+)\",?/\1/g')" >> $GITHUB_ENV
-
-      - name: Use the marketplace README
-        run: node ./tools/useMarketplaceReadme.mjs
+          echo "Qt6Renderer_PackageVersion=$(cat package.json | grep \"version\" | sed -r 's/\s*\"version\"\s*:\s*\"(.+)\",?/\1/g')" >> $GITHUB_ENV      
 
       - name: Install VSCE
         run: npm install -g @vscode/vsce
 
-      - name: Package
-        run: vsce package ${{env.Qt6Renderer_PackageVersion}}
+      - name: Package - Branch
+        if: ${{startsWith(github.ref, 'refs/heads/')}}
+        run: vsce package --readme-path README.marketplace.md --no-git-tag-version --pre-release ${{env.Qt6Renderer_PackageVersion}}
+
+      - name: Package - Main
+        if: ${{startsWith(github.ref, 'refs/tags/v')}}
+        run: vsce package --readme-path README.marketplace.md --no-git-tag-version ${{env.Qt6Renderer_PackageVersion}}
 
       - uses: actions/upload-artifact@v4
         with:
