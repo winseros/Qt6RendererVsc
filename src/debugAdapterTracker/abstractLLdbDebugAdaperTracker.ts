@@ -12,6 +12,7 @@ export abstract class AbstractLldbDebugAdapterTracker extends AbstractDebugAdapt
         await this.registerSummary(frameId, "QBasicAtomicInt", false);
         await this.registerBoth(frameId, "QBitArray", false);
         await this.registerBoth(frameId, "QByteArray", false);
+        await this.registerSynth(frameId, "QCborValue", false);
         await this.registerSummary(frameId, "QChar", false);
         await this.registerBoth(frameId, "QDate", false);
         await this.registerBoth(frameId, "QDateTime", false);
@@ -20,6 +21,12 @@ export abstract class AbstractLldbDebugAdapterTracker extends AbstractDebugAdapt
         await this.registerBoth(frameId, "QFile", false);
         await this.registerBoth(frameId, "QFileInfo", false);
         await this.registerSummary(frameId, "QFlags", true);
+        await this.registerBoth(frameId, "QJsonArray", false);
+        await this.registerBoth(frameId, "QJsonDocument", false);
+        await this.registerBoth(frameId, "QJsonObject", false);
+        await this.registerBoth(frameId, "QJsonValue", false);
+        await this.registerBoth(frameId, "QJsonValueConstRef", false);
+        await this.registerBoth(frameId, "QJsonValueRef", false);
         await this.registerBoth(frameId, "QHash", true);
         await this.registerSummary(frameId, "QHostAddress", false);
         await this.registerBoth(frameId, "QList", true);
@@ -29,6 +36,7 @@ export abstract class AbstractLldbDebugAdapterTracker extends AbstractDebugAdapt
         await this.registerBoth(frameId, "QSharedPointer", true);
         await this.registerBoth(frameId, "QSharedDataPointer", true);
         await this.registerBoth(frameId, "QString", false);
+        await this.registerBoth(frameId, "QtCbor::Element", false);
         await this.registerBoth(frameId, "QTemporaryFile", false);
         await this.registerBoth(frameId, "QTemporaryDir", false);
         await this.registerBoth(frameId, "QTime", false);
