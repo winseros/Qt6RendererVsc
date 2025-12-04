@@ -22,6 +22,7 @@ export abstract class AbstractDebugAdapterTracker implements vscode.DebugAdapter
         this._commandTextTransformer = commandTextTransformer;
     }
 
+    //eslint-disable-next-line @typescript-eslint/no-misused-promises
     async onDidSendMessage(message: unknown) {
         if (!this._initialized && isStoppedEvent(message)) {
             if (isDefined(message.body.threadId)) {
