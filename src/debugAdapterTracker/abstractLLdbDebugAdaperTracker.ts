@@ -10,6 +10,7 @@ export abstract class AbstractLldbDebugAdapterTracker extends AbstractDebugAdapt
 
         await this.registerSummary(frameId, "QAtomicInt", false);
         await this.registerSummary(frameId, "QBasicAtomicInt", false);
+        await this.registerSummary(frameId, "QBasicAtomicInteger", true);
         await this.registerBoth(frameId, "QBitArray", false);
         await this.registerBoth(frameId, "QByteArray", false);
         await this.registerSynth(frameId, "QCborValue", false);
