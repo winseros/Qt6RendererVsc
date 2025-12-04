@@ -28,10 +28,12 @@ See the [third-party extensions](#prerequisites) debugger and operating systems 
 
 ## Operating systems tested on
 * Linux
-  * LLDB 18 ([LLDB DAP][lldbdap])
+  * LLDB 18 ([LLDB DAP][lldbdap], [LLDB MI][lldbmi])
   * GDB 15 ([C/C++ for Visual Studio Code][cpptools])
+  * see [example][launch-json-example-linux]
 * Windows  
   * GDB 14 ([C/C++ for Visual Studio Code][cpptools])
+  * see [example][launch-json-example-windows]
 
 ## Architectures tested on
 * x64
@@ -48,6 +50,9 @@ See at the [Qt6Renderer](https://github.com/winseros/Qt6Renderer?tab=readme-ov-f
 [vscode]: https://code.visualstudio.com/
 [cpptools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 [lldbdap]: https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.lldb-dap
+[lldbmi]: https://code.visualstudio.com/docs/cpp/lldb-mi
+[launch-json-example-linux]: https://github.com/winseros/Qt6RendererExmpl/blob/master/.vscode-example-linux/launch.json
+[launch-json-example-windows]: https://github.com/winseros/Qt6RendererExmpl/blob/master/.vscode-example-windows/launch.json
 [gdb]: https://sourceware.org/gdb/
 [lldb]: https://lldb.llvm.org/
 [qt6renderer]: https://github.com/winseros/Qt6Renderer
