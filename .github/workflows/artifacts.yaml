@@ -9,7 +9,7 @@ on:
 jobs:
   release:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Set up NodeJS
         uses: actions/setup-node@v4
@@ -53,7 +53,7 @@ jobs:
         if: ${{startsWith(github.ref, 'refs/tags/v')}}
         run: vsce package --no-git-tag-version ${{env.Qt6Renderer_PackageVersion}}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: Qt6Renderer-${{env.Qt6Renderer_ArchiveVersion}}
           path: ./*.vsix
