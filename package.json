@@ -5,7 +5,7 @@
   "publisher": "knv",
   "repository": "https://github.com/winseros/Qt6RendererVsc",
   "version": "0.4.0",
-  "icon": "ai_generated_icon.png",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.106.1"
   },
@@ -13,7 +13,7 @@
     "dist/**/*.js",
     "dist/**/*.js.map",
     "dist/**/*.py",
-    "ai_generated_icon.png",
+    "icon.png",
     "screenshots/*",
     "LICENSE.txt"
   ],
